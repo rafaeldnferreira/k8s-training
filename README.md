@@ -23,6 +23,7 @@ Create the relevant [Helm](https://helm.sh/) chart under the `helm` directory to
 
 - A public link where the application can be accessed;
 - A tour to the created k8s manifests and rationale of each of them;
+- A way to reproduce the deployment multiple times;
 - If you deploy multiple instances of the back end, you will notice that the application doesn't behave as intended, can understand the problem and propose a solution to fix that? **BONUS**: can you implement that solution?
 
 ## Guidelines and resources
