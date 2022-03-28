@@ -1,0 +1,7 @@
+body > div {
+    margin: 3rem;
+}
+
+input[type=text] {
+    width: 80%;
+}

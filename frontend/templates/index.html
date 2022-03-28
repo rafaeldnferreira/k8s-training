@@ -1,0 +1,79 @@
+<html lang="en">
+
+<head>
+    <title>TODO Application</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="/static/styles.css">
+    <link href="/static/bootstrap.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+    <div class="container-sm">
+        <h1>TODO Application</h1>
+        <p>A fantastic application to allow you organize your tasks!</p>
+
+        {% if error %}
+
+          <div class="alert alert-danger" role="alert">
+            Unable to reach out to back end services, please try again later!
+          </div>
+
+        {% else %}
+
+        <form action="/create-task" method="post" autocomplete="off">
+            <div class="row">
+                <div class="col">
+                    <label for="descriptionField" class="form-label">Task</label>
+                    <input type="text" id="descriptionField" class="form-contol" name="description" />
+                </div>
+                <div class="col">
+                    
+                    <button type="submit" class="btn btn-primary">Create</button>
+                </div>
+            </div>
+            
+        </form>
+
+        {% if tasks|length > 0 %}
+
+        <div class="container">
+            <form action="/complete-task" method="post">
+                <ul>
+
+
+                    {% for task in tasks: %}
+                    <div class="row">
+                        <div class="col">
+                            <li>{{ task['description'] }}</li>
+                        </div>
+                        <div class="col">
+                            <input type="checkbox" name="{{ task['id'] }}" />
+                        </div>
+                    </div>
+
+                    {% endfor %}
+
+
+                </ul>
+                <button type="submit" class="btn btn-secondary">Complete selected</button>
+        </div>
+        </form>
+    </div>
+
+
+    {% endif %}
+
+    </div>
+
+        {% endif %}
+
+        
+    <div class="container-sm">
+        <span> Served by {{ hostname }} at {{ timestamp }} </span>
+    </div>
+
+</body>
+
+</html>
